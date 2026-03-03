@@ -1,3 +1,4 @@
+.env
 venv/
 src/__*
 data/chroma_db/*

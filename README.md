@@ -38,6 +38,7 @@ The system is built as a three-stage pipeline to ensure performance on standard 
     )
 
 ```
+
 ## Project Structure
 
 ```text

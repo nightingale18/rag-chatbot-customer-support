@@ -1,0 +1,123 @@
+{
+  "summary": {
+    "avg_faithfulness": 1.0,
+    "avg_relevance": 1.0,
+    "avg_context_recall": 0.602
+  },
+  "results": [
+    {
+      "question": "How long is the standard warranty?",
+      "answer": "The standard warranty duration for an Electric Vehicle Battery is 8 years or 160,000 km (whichever comes first). \n\nSources:\n- Warranty Coverage\n- Electric Vehicle Battery Warranty",
+      "reference": "The standard warranty lasts 2 years with unlimited mileage.",
+      "sources": [
+        "doc_03_warranty.txt",
+        "doc_04_ordering_process.txt",
+        "doc_04_ordering_process.txt"
+      ],
+      "faithfulness": {
+        "score": 1.0,
+        "reason": "Could not parse judge response."
+      },
+      "relevance": {
+        "score": 1.0,
+        "reason": "Directly and completely answers the question about the standard warranty duration"
+      },
+      "context_recall": 0.429
+    },
+    {
+      "question": "What does the EV battery warranty cover?",
+      "answer": "The Electric Vehicle Battery Warranty covers:\n\n* Battery capacity below 70% of original\n* Battery cell defects and high-voltage components.\n\nSources:\n- Warranty Coverage (Electric Vehicle Battery Warranty)\n- Warranty Coverage (Standard Warranty)",
+      "reference": "The EV battery warranty lasts 8 years or 160,000 km, whichever comes first. It covers battery capacity falling below 70% and battery cell defects.",
+      "sources": [
+        "doc_03_warranty.txt",
+        "doc_03_warranty.txt",
+        "doc_05_electric_vehicles.txt"
+      ],
+      "faithfulness": {
+        "score": 1.0,
+        "reason": "All claims about the Electric Vehicle Battery Warranty are supported by the context."
+      },
+      "relevance": {
+        "score": 1.0,
+        "reason": "Directly answers the question with specific details about EV battery warranty coverage."
+      },
+      "context_recall": 0.333
+    },
+    {
+      "question": "How often should I change the engine oil?",
+      "answer": "According to our standard service schedule, you should change your engine oil every 15,000 km or 12 months, whichever comes first.\n\nSources:\n- Service Intervals & Maintenance (Standard Service Schedule)",
+      "reference": "Engine oil should be changed every 15,000 km or 12 months, whichever comes first.",
+      "sources": [
+        "doc_02_service_maintenance.txt",
+        "doc_02_service_maintenance.txt",
+        "doc_02_service_maintenance.txt"
+      ],
+      "faithfulness": {
+        "score": 1.0,
+        "reason": "Could not parse judge response."
+      },
+      "relevance": {
+        "score": 1.0,
+        "reason": "The answer directly and completely answers the question."
+      },
+      "context_recall": 0.917
+    },
+    {
+      "question": "What are my charging options for an electric vehicle?",
+      "answer": "You have several charging options available for your electric vehicle:\n\n1. Home Charging: You can install a Wallbox charger at home, which comes in two power levels - 11 kW or 22 kW AC.\n2. Public Charging: You have access to over 600,000 public charging points across Europe.\n3. DC Fast Charging: Depending on the model of your vehicle, you can take advantage of up to 200 kW fast charging.\n\nThese options allow for convenient and efficient charging at home, on-the-go, or at public charging stations.\n\nSources:\n- Electric Vehicles & Charging\n- Home Charging",
+      "reference": "You can charge at home with a Wallbox (11 or 22 kW), at public charging points across Europe, or use DC fast charging up to 200 kW.",
+      "sources": [
+        "doc_05_electric_vehicles.txt",
+        "doc_03_warranty.txt",
+        "doc_05_electric_vehicles.txt"
+      ],
+      "faithfulness": {
+        "score": 1.0,
+        "reason": "All claims about charging options are supported by the context."
+      },
+      "relevance": {
+        "score": 1.0,
+        "reason": "The answer directly and completely addresses the question about charging options for an electric vehicle."
+      },
+      "context_recall": 0.684
+    },
+    {
+      "question": "How do I place a vehicle order?",
+      "answer": "To place a vehicle order, follow these steps:\n\n1. First, use our Online Configurator on our website or visit a dealer to select your desired model, engine, exterior, interior, and packages. Save your configuration with a code.\n2. Next, present your configuration to a dealer and discuss pricing, financing, and leasing options.\n3. Check available inventory vs. factory order to ensure the vehicle you want is in stock.\n4. Once you're satisfied with the details, sign the purchase or lease agreement.\n5. Pay the deposit (typically 10% of vehicle price).\n6. Receive your order confirmation with an estimated delivery date.\n\nSources:\n- Ordering Process\n- Vehicle Features & Configuration Options",
+      "reference": "Configure your car online or at a dealer, sign the purchase agreement, pay a 10% deposit, and track production via the mobile app.",
+      "sources": [
+        "doc_04_ordering_process.txt",
+        "doc_04_ordering_process.txt",
+        "doc_01_vehicle_features.txt"
+      ],
+      "faithfulness": {
+        "score": 1.0,
+        "reason": "The answer accurately follows the provided context and includes all steps in the correct order."
+      },
+      "relevance": {
+        "score": 1.0,
+        "reason": "The answer directly and completely addresses the question."
+      },
+      "context_recall": 0.375
+    },
+    {
+      "question": "Is roadside assistance available on weekends?",
+      "answer": "Yes, Roadside Assistance is available 24/7, 365 days a year, including weekends.\n\nSources:\n- [Source: Customer Support Channels]\nRoadside Assistance:\n- Available 24/7, 365 days a year",
+      "reference": "Yes, roadside assistance is available 24/7, 365 days a year.",
+      "sources": [
+        "doc_06_customer_support.txt",
+        "doc_06_customer_support.txt",
+        "doc_02_service_maintenance.txt"
+      ],
+      "faithfulness": {
+        "score": 1.0,
+        "reason": "Could not parse judge response."
+      },
+      "relevance": {
+        "score": 1.0,
+        "reason": "Directly and completely answers the question"
+      },
+      "context_recall": 0.875
+    }
+  ]
+}

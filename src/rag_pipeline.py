@@ -177,6 +177,7 @@ def build_retriever(
     ensemble_retriever = EnsembleRetriever(
         retrievers=[bm25_retriever, chroma_retriever],
         weights=config.ENSEMBLE_WEIGHTS,  # [0.4, 0.6]
+        id_key="source",
     )
 
     # Step 4: Multi-Query Retriever
@@ -265,8 +266,7 @@ def build_rag_chain(vector_store: Chroma, chunks: List[Document], top_k: int):
 
 class RAGChatbot:
     """
-    The primary engine for the chatbot. Manages state and allows
-    Top-K adjustments without re-loading the entire DB.
+    The primary engine for the chatbot.
     """
 
     def __init__(self, top_k: int = config.DEFAULT_TOP_K, force_rebuild: bool = False):

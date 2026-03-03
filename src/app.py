@@ -8,6 +8,10 @@ Run with: streamlit run src/app.py
 import streamlit as st
 from rag_pipeline import RAGChatbot
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 # ──────────────────────────────────────────────
 # UI Components
 # ──────────────────────────────────────────────
