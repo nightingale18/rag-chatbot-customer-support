@@ -23,7 +23,7 @@ EMBEDDING_MODEL = "nomic-embed-text"
 # 400 chars (approx 1 paragraph) keeps retrieval precise.
 # Overlap prevents losing context at the edges of a cut.
 CHUNK_SIZE = 400
-CHUNK_OVERLAP = 100
+CHUNK_OVERLAP = 60
 
 # Separators prioritized to keep headers and paragraphs together.
 CHUNK_SEPARATORS = ["\n## ", "\n### ", "\n\n", "\n", " ", ""]
