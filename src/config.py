@@ -11,13 +11,19 @@ KNOWLEDGE_BASE_DIR = BASE_DIR / "data" / "knowledge_base"
 CHROMA_DB_DIR = BASE_DIR / "data" / "chroma_db"
 
 # --- Model Selection ---
-# Llama 3.2 (3B) is the sweet spot: small enough for CPU/laptop RAM,
-# but smart enough to follow instructions and stay grounded.
+# Llama 3.2 (3B) is small enough for CPU and laptop RAM,
+# but is able enough to follow instructions.
 CHAT_MODEL = "llama3.2"
 
-# Nomic is lightweight (274MB) and consistently beats larger models
+# Nomic is lightweight (274MB) embedding model, which outperforms even larger models
 # on semantic search benchmarks (MTEB).
 EMBEDDING_MODEL = "nomic-embed-text"
+
+# Hybrid retrieval – weight split between BM25 and Chroma
+ENSEMBLE_WEIGHTS = [0.4, 0.6]
+
+# Cross-encoder reranker
+RERANKER_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2"
 
 # --- Text Chunking ---
 # 400 chars (approx 1 paragraph) keeps retrieval precise.
@@ -44,7 +50,6 @@ COLLECTION_NAME = "kb_v1_03_2026"
 LLM_TEMPERATURE = 0
 
 # --- System Prompt ---
-# Constraints: No hallucinations, admit ignorance, and always cite sources.
 SYSTEM_PROMPT = """\
 You are a professional customer support assistant for an automotive company.
 Use ONLY the provided Context to answer. 

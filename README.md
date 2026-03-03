@@ -26,6 +26,18 @@ The system is built as a three-stage pipeline to ensure performance on standard 
 
 ---
 
+## Prompt Template
+
+```
+
+    prompt = ChatPromptTemplate.from_messages(
+        [
+            ("system", config.SYSTEM_PROMPT),
+            ("human", "{question}"),
+        ]
+    )
+
+```
 ## Project Structure
 
 ```text
