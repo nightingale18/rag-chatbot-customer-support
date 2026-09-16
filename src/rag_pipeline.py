@@ -1,5 +1,5 @@
 """
-rag_pipeline.py – Document ingestion and RAG chain logic.
+Document ingestion and RAG chain logic.
 """
 
 from __future__ import annotations
@@ -31,7 +31,6 @@ from langchain_community.retrievers import BM25Retriever
 # ── Reranker ──────────────────────────────────────────────────────────────────
 from langchain_classic.retrievers.document_compressors import CrossEncoderReranker
 from langchain_community.cross_encoders import HuggingFaceCrossEncoder
-
 
 # Ensure local config is accessible
 sys.path.insert(0, str(Path(__file__).parent))

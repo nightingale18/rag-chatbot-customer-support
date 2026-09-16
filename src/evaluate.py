@@ -1,5 +1,5 @@
 """
-evaluate.py – Offline evaluation for the RAG chatbot.
+Evaluation for the RAG chatbot.
 
 Metrics implemented:
 
@@ -29,7 +29,6 @@ from langchain_core.prompts import ChatPromptTemplate
 
 import config
 from rag_pipeline import RAGChatbot
-
 
 # ──────────────────────────────────────────────
 # Evaluation Dataset
@@ -84,8 +83,7 @@ FAITHFULNESS_PROMPT = ChatPromptTemplate.from_messages(
     [
         (
             "system",
-            textwrap.dedent(
-                """\
+            textwrap.dedent("""\
         You are a strict evaluation judge.
         Your job is to check whether an answer is faithful to a given context.
 
@@ -98,8 +96,7 @@ FAITHFULNESS_PROMPT = ChatPromptTemplate.from_messages(
 
         Respond with ONLY a JSON object, no explanation:
         {{"score": <0.0, 0.5, or 1.0>, "reason": "<one sentence>"}}
-    """
-            ),
+    """),
         ),
         ("human", "CONTEXT:\n{context}\n\nANSWER:\n{answer}"),
     ]
@@ -109,8 +106,7 @@ RELEVANCE_PROMPT = ChatPromptTemplate.from_messages(
     [
         (
             "system",
-            textwrap.dedent(
-                """\
+            textwrap.dedent("""\
         You are a strict evaluation judge.
         Your job is to score how well an answer addresses a question.
 
@@ -121,8 +117,7 @@ RELEVANCE_PROMPT = ChatPromptTemplate.from_messages(
 
         Respond with ONLY a JSON object, no explanation:
         {{"score": <0.0, 0.5, or 1.0>, "reason": "<one sentence>"}}
-    """
-            ),
+    """),
         ),
         ("human", "QUESTION:\n{question}\n\nANSWER:\n{answer}"),
     ]

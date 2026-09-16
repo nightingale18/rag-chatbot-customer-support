@@ -1,5 +1,5 @@
 """
-eval_dataset.py – Evaluation dataset.
+Evaluation dataset.
 
 Coverage:
   - doc_01  Vehicle Features

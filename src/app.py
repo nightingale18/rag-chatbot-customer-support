@@ -1,7 +1,6 @@
 """
 Streamlit Chat Interface for the RAG Chatbot.
 
-This is a starter template — feel free to modify, extend, or replace it entirely.
 Run with: streamlit run src/app.py
 """
 
@@ -16,9 +15,10 @@ load_dotenv()
 # UI Components
 # ──────────────────────────────────────────────
 
+"""Render sidebar settings. Returns a dict of parameters."""
+
 
 def render_sidebar() -> dict:
-    """Render sidebar settings. Returns a dict of user-configured parameters."""
     with st.sidebar:
         st.header("⚙️ Settings")
 
@@ -41,8 +41,10 @@ def render_sidebar() -> dict:
     return {"top_k": top_k}
 
 
+"""Render a single chat message."""
+
+
 def render_message(message: dict) -> None:
-    """Render a single chat message with optional source expander."""
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
         if message.get("sources"):
@@ -51,37 +53,21 @@ def render_message(message: dict) -> None:
                     st.markdown(f"- {source}")
 
 
+"""Display all messages stored in session state."""
+
+
 def render_chat_history() -> None:
-    """Display all messages stored in session state."""
     for message in st.session_state.messages:
         render_message(message)
 
 
+""" Generate a chatbot response for the given query."""
+
+
 def get_bot_response(query: str, top_k: int) -> tuple[str, list[str]]:
-    """
-    Generate a chatbot response for the given query.
-
-    Your implementation should:
-      1. Retrieve relevant chunks from the vector store (use top_k)
-      2. Pass the retrieved context + query to the LLM
-      3. Return the answer and a list of source document
-
-    Example:
-        from rag_chain import get_rag_chain
-        chain = get_rag_chain(top_k=top_k)
-        result = chain.invoke({"question": query})
-        answer = result["answer"]
-        sources = [doc.metadata["source"] for doc in result["source_documents"]]
-        return answer, sources
-    """
     rag_chatbot = RAGChatbot(top_k)
     answer, sources = rag_chatbot.ask(query)
     return answer, sources
-
-
-# ──────────────────────────────────────────────
-# Main App
-# ──────────────────────────────────────────────
 
 
 def main():
@@ -94,23 +80,19 @@ def main():
     st.title("🚗 Customer Service Chatbot")
     st.caption("Ask questions about vehicles, services, warranty, and more.")
 
-    # Sidebar
     settings = render_sidebar()
 
-    # Session state
     if "messages" not in st.session_state:
         st.session_state.messages = []
 
     render_chat_history()
 
-    # Chat input
     if prompt := st.chat_input("Ask a question..."):
         # User message
         st.session_state.messages.append({"role": "user", "content": prompt})
         with st.chat_message("user"):
             st.markdown(prompt)
 
-        # Bot response
         answer, sources = get_bot_response(prompt, top_k=settings["top_k"])
 
         response = {"role": "assistant", "content": answer, "sources": sources}
